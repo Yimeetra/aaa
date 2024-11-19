@@ -5,20 +5,16 @@ import cors from "cors";
 const app = express();
 const port = 3001;
 
-app.use(
-  cors({
-    origin: "http://31.129.44.155",
-  })
-);// Разрешаем CORS
+app.use(cors());// Разрешаем CORS
 
 const dedustUrl = "https://app.dedust.io/pools?search=holy";
-const tonViewerUrl =
-  "https://tonviewer.com/EQAWVv2x6txoc5Nel9CltbfYSBMOOf0R9sb7GnqY-4ncmjcQ";
+const tonViewerUrl = "https://tonviewer.com/EQAWVv2x6txoc5Nel9CltbfYSBMOOf0R9sb7GnqY-4ncmjcQ";
 
 // Функция для парсинга данных с сайта DeDust
 async function getPoolData() {
   const browser = await puppeteer.launch({
     headless: true,
+    executablePath: '/usr/bin/chromium-browser',
     args: ["--no-sandbox", "--disable-setuid-sandbox"], // Безопасные параметры для серверов
   });
   const page = await browser.newPage();
@@ -91,7 +87,7 @@ async function getElementData() {
 }
 
 // API для передачи данных в React
-app.get("/pool-info", async (req, res) => {
+app.get("/api/pool-info", async (req, res) => {
   const data = await getPoolData();
   if (data) {
     res.json(data);
@@ -100,7 +96,7 @@ app.get("/pool-info", async (req, res) => {
   }
 });
 
-app.get("/element-info", async (req, res) => {
+app.get("/api/element-info", async (req, res) => {
   const data = await getElementData();
   if (data) {
     res.json(data);

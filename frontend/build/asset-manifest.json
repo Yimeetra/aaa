@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/static/css/main.8c0ca387.css",
-    "main.js": "/static/js/main.5932c1d5.js",
+    "main.js": "/static/js/main.71880481.js",
     "static/media/GeometricaSans_Regular.ttf": "/static/media/GeometricaSans_Regular.a6311a7d7450ab6e1d6c.ttf",
     "index.html": "/index.html",
     "main.8c0ca387.css.map": "/static/css/main.8c0ca387.css.map",
-    "main.5932c1d5.js.map": "/static/js/main.5932c1d5.js.map"
+    "main.71880481.js.map": "/static/js/main.71880481.js.map"
   },
   "entrypoints": [
     "static/css/main.8c0ca387.css",
-    "static/js/main.5932c1d5.js"
+    "static/js/main.71880481.js"
   ]
 }

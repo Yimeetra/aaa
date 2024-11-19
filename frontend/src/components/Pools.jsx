@@ -15,7 +15,7 @@ const Pools = () => {
     const fetchPoolData = async () => {
       try {
         const response = await axios.get(
-          "/api/pool-info"
+          "http://localhost:3001/api/pool-info"
         );
         setPoolData(response.data);
         setLoading(false);

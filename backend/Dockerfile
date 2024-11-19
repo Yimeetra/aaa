@@ -1,8 +1,11 @@
 FROM node:19-alpine
 
-COPY package.json package.json
-RUN npm install
+ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
+ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
 
 COPY . .
+RUN apk update && apk add chromium
 
-CMD [ "npm", "start" ]
+RUN npm install
+
+ENTRYPOINT [ "npm", "start" ]

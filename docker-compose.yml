@@ -1,31 +1,14 @@
-networks:
-  dev:
-
 services:
-  nginx:
-    image: nginx:stable-alpine
-    ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - "./nginx.conf:/etc/nginx/nginx.conf"
-      - '/etc/letsencrypt:/etc/letsencrypt'
-    depends_on: 
-      - backend
-      - frontend
-    networks:
-      - dev
-
   backend:
     build:
       context: ./backend
       dockerfile: Dockerfile
-    networks:
-      - dev
+    ports:
+      - 3001:3001
 
   frontend:
     build:
       context: ./frontend
       dockerfile: Dockerfile
-    networks:
-      - dev
+    ports:
+      - 3000:3000
