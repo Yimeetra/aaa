@@ -1,14 +1,20 @@
 services:
+  nginx:
+    image: nginx:1-alpine
+    volumes:
+      - ./default.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - 80:80
+      - 443:443
+
   backend:
     build:
       context: ./backend
-      dockerfile: Dockerfile
     ports:
       - 3001:3001
 
   frontend:
     build:
       context: ./frontend
-      dockerfile: Dockerfile
     ports:
       - 3000:3000
