@@ -11,7 +11,7 @@ const Main = () => {
     const fetchElementData = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3001/api/element-info"
+          "http://31.129.44.155/api/element-info"
         );
         setElementData(response.data.elementData);
         setLoading(false);
