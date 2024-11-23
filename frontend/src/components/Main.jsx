@@ -42,7 +42,7 @@ const Main = () => {
           Burned:
           {elementData ? (
             <span id="burned_tokens">
-              {161803398 - parseInt(elementData.slice(0, -4))} HOLY
+              {161803398 - parseInt(elementData)} HOLY
             </span>
           ) : (
             <p>Данные не найдены</p>

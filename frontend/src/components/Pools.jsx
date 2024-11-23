@@ -4,7 +4,7 @@ import axios from "axios";
 const Pools = () => {
   const [poolData, setPoolData] = useState({
     poolNames: [],
-    poolTexts: [],
+    poolTpr: [],
     poolHref: [],
   });
   const [loading, setLoading] = useState(true);
@@ -33,7 +33,7 @@ const Pools = () => {
 
   return (
     <div class="gridStatic" id="gridContainerStatic">
-      {poolData.poolNames.length > 0 && poolData.poolTexts.length > 0 ? (
+      {poolData.poolNames.length > 0 && poolData.poolTpr.length > 0 ? (
         <div>
           {poolData.poolNames.map((poolName, index) => (
             <div class="itemRowStatic" key={index}>
@@ -42,7 +42,7 @@ const Pools = () => {
               </div>
 
               <div class="itemCellStatic">
-                <span class="itemCellStatic">{poolData.poolTexts[index]}</span>
+                <span class="itemCellStatic">{poolData.poolTpr[index]} %</span>
               </div>
 
               <div class="itemCellStatic">
