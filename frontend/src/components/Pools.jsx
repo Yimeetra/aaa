@@ -3,12 +3,12 @@ import axios from "axios";
 
 const Pools = () => {
   const [poolData, setPoolData] = useState({
-    poolNames: [],
-    poolTpr: [],
-    poolHref: [],
+    pools: [],
   });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  poolData.pools.sort((a, b) => b.apr - a.apr)
 
   useEffect(() => {
     // Функция для получения данных от сервера
@@ -33,21 +33,21 @@ const Pools = () => {
 
   return (
     <div class="gridStatic" id="gridContainerStatic">
-      {poolData.poolNames.length > 0 && poolData.poolTpr.length > 0 ? (
+      {poolData.pools.length > 0 ? (
         <div>
-          {poolData.poolNames.map((poolName, index) => (
+          {poolData.pools.map((pool, index) => (
             <div class="itemRowStatic" key={index}>
               <div class="itemCellStatic">
-                <span class="itemCellStatic">{poolName}</span>
+                <span class="itemCellStatic">{pool.name}</span>
               </div>
 
               <div class="itemCellStatic">
-                <span class="itemCellStatic">{poolData.poolTpr[index]} %</span>
+                <span class="itemCellStatic">{pool.apr} %</span>
               </div>
 
               <div class="itemCellStatic">
                 <a
-                  href={poolData.poolHref[index]}
+                  href={pool.href}
                   target="_blank"
                   rel="noreferrer"
                   class="itemCellStatic"
